@@ -1,66 +1,87 @@
-## Foundry
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+# Decentralized Lottery Contract
 
-Foundry consists of:
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+🕹️Lottery Contract :
 
-## Documentation
 
-https://book.getfoundry.sh/
+->This is a decentralized lottery ,offering us more Transparency , Fairness and Security to our funds ...!
 
-## Usage
 
-### Build
+->In this contract chainlink VRF and Automation is used to get a Random Number and Automating the Lottery contract for picking the winners.
 
-```shell
-$ forge build
+
+✅Chainlink VRF(VERIFIABLE RANDOM FUNCTION):
+Chainlink VRF allows smart contracts to access a secure source of randomness on the blockchain. This is crucial for applications such as gaming, gambling, and various decentralized finance (DeFi) protocols that require unpredictable and unbiased random numbers.
+
+
+✅Chainlink Automation :
+Chianlink Automation is used to automate the execution of functions based on the triggers like Time Based Trigger , Log Based Trigger and Custom Logic Trigger.
+
+
+✅Info about the VRF and Automation will be at chainlink Docs.
+->Testing and DeployScript is written Using Foundry.
+
+
+## Deployment
+
+
+
+To deploy this project 
+
+
+
+1.Set Up Environment Variables
+
+
+
+
+2.Deploy
+
+```solidity
+make deploy ARGS="--network sepolia"
+
 ```
 
-### Test
+2.Deploy
 
-```shell
-$ forge test
+```solidity
+make deploy ARGS="--network sepolia"
+
 ```
 
-### Format
+3.Register a chainlink AutoMation UpKeep
 
-```shell
-$ forge fmt
+visit chainlink automation page for subscription
+
+
+Scripts
+
+```solidity
+cast send <RAFFLE_CONTRACT_ADDRESS> "enterRaffle()" --value 0.1ether --private-key <PRIVATE_KEY> --rpc-url $SEPOLIA_RPC_URL
+
 ```
 
-### Gas Snapshots
+Create a chain link Subscription :
 
-```shell
-$ forge snapshot
+```solidty
+make createSubscription ARGS="--network sepolia"
 ```
 
-### Anvil
 
-```shell
-$ anvil
-```
 
-### Deploy
 
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
 
-### Cast
 
-```shell
-$ cast <subcommand>
-```
+## Environment Variables
 
-### Help
+To run this project, you will need to add the following environment variables to your .env file
 
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
+`RPC_URL`
+
+`ETHERSCAN_API_KEY`
+
+`PRIVATE_KEY`
+
+
+## Thank U
